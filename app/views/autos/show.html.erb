@@ -1,0 +1,33 @@
+<% if notice != nil %>
+  <p id="notice" class="alert alert-success" role="alert">
+    <%= notice %>
+  </p>
+<% end %>
+
+<p>
+  <strong>Make:</strong>
+  <%= @auto.make %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @auto.year %>
+</p>
+
+<p>
+  <strong>Miles:</strong>
+  <%= @auto.miles %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @auto.price %>
+</p>
+
+<%= image_tag @auto.avatar.url(:medium) %>
+</br>
+
+<div class="btn-group">
+  <%= link_to 'Edit', edit_auto_path(@auto), class: "btn btn-default" %>
+  <%= link_to 'Back', autos_path, class: "btn btn-default" %>
+</div>

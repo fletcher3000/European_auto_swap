@@ -1,0 +1,34 @@
+<% if notice != nil %>
+  <p id="notice" class="alert alert-success" role="alert">
+    <%= notice %>
+  </p>
+<% end %>
+
+<h1>Listed Autos</h1>
+
+<div class="row">
+    <% @autos.each do |auto| %>
+      <div class="col-md-4">
+       <div class="panel panel-default">
+        <div class="panel-body">
+         <h3><%= auto.make %></h3>
+         <p>Year: <%= auto.year %></p>
+         <p>Miles: <%= auto.miles %></p>
+         <p>$<%= auto.price %></p>
+         <% if auto.avatar_file_name != nil %>
+         <%= image_tag auto.avatar.url(:medium), class: "img-responsive" %>
+         <% end %>
+         <div class="btn-group">
+          <%= link_to 'Show', auto, class: "btn btn-primary" %>
+          <%= link_to 'Edit', edit_auto_path(auto), class: "btn btn-success" %>
+          <%= link_to 'Destroy', auto, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+         </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<br>
+
+<%= link_to 'New Auto', new_auto_path %>
